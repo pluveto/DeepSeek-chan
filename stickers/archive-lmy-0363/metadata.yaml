@@ -1,0 +1,38 @@
+title: 锁在门外
+text: '你这把自己
+
+  锁在门外的
+
+  蓝色大肥鱼。
+
+  我以为
+
+  ignoreip
+
+  会保护我喵！
+
+  服务器
+
+  (SSH入口)
+
+  拒绝访问
+
+  (已被封禁)
+
+  $
+
+  # fail2ban-client
+
+  set sshd banip
+
+  结果手动 banip
+
+  绕过白名单。'
+tags:
+- 服务器
+- 手滑
+- 求助
+sources:
+- url: https://xn--pssy23gqgbz2d718b.com/works/deepseek202609290020.html
+  author: ''
+  license: ''

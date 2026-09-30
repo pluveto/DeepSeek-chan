@@ -1,0 +1,1525 @@
+{
+  "initialCount": 607,
+  "finalCount": 582,
+  "reviewer": "Codex collection agent",
+  "method": "PIL first-frame pHash candidate screening plus Unicode normalization/edit similarity; agent visual pair review. Added white-composite hash pass for transparent input. Similarity never automatically deletes.",
+  "reviewScope": {
+    "hashCandidatePairs": 533,
+    "focusedPairVisualReviews": 79,
+    "supplementalWhiteCompositePairsReviewed": 48,
+    "sameTemplateImagesIndividuallyReviewed": 105,
+    "animationPair": "33 frames and 2750ms each; frames 0/8/16/24/32 visually compared"
+  },
+  "retentionRule": "Different visible caption, facial expression, prop, or motion stays separate. Same-template GIFs with different captions retained. No published ID removed.",
+  "decisions": [
+    {
+      "decision": "merge",
+      "pairIndex": 1,
+      "survivor": "blue-fish-good-girl",
+      "removed": "aigengtu-1070",
+      "chosenOriginal": "blue-fish-good-girl",
+      "before": [
+        {
+          "id": "blue-fish-good-girl",
+          "dimensions": [
+            1280,
+            1214
+          ],
+          "frames": 1,
+          "bytes": 957223,
+          "sha256": "e9502e6260bf966ccb75076076a657224b636a5a58c0874d260d872b9fb14f7d",
+          "watermark": "No clearly legible added watermark observed in reviewed image",
+          "sources": [
+            {
+              "url": "https://github.com/EDMOK/blue-fish-archive/blob/3ccab6c91c0f104e618f42a7d27552345db9c6d1/media/1d23a9e9-d7a7-4d5e-88a6-c228ee1488b4.png",
+              "author": "",
+              "license": ""
+            }
+          ]
+        },
+        {
+          "id": "aigengtu-1070",
+          "dimensions": [
+            1280,
+            1214
+          ],
+          "frames": 1,
+          "bytes": 159623,
+          "sha256": "ff058dbb5b39a4e553abfeee04b475d8dee8922dc660f86d135c6076b8e7de9d",
+          "watermark": "No clearly legible added watermark observed in reviewed image",
+          "sources": [
+            {
+              "url": "https://aigengtu.com/zh/meme/1070"
+            },
+            {
+              "url": "https://img.aigengtu.com/meme/1070.jpg"
+            },
+            {
+              "url": "https://www.bilibili.com/video/BV1g34162EQP/",
+              "author": "",
+              "license": ""
+            },
+            {
+              "url": "https://i0.hdslb.com/bfs/new_dyn/76a74c8f780cc9c66c3cf0f70f9754c11643436788.jpg",
+              "author": "",
+              "license": ""
+            }
+          ]
+        }
+      ],
+      "reason": "Same image and caption, equal 1280×1214 framing; keep published original and ID.",
+      "sourceCountAfter": 5,
+      "publishedIdPreserved": true
+    },
+    {
+      "decision": "merge",
+      "pairIndex": 2,
+      "survivor": "archive-f536be80b43d",
+      "removed": "aigengtu-1073",
+      "chosenOriginal": "archive-f536be80b43d",
+      "before": [
+        {
+          "id": "archive-f536be80b43d",
+          "dimensions": [
+            1254,
+            1254
+          ],
+          "frames": 1,
+          "bytes": 2345092,
+          "sha256": "f536be80b43d2579e3f9d09f700209bc320de7d71bc436016ba409cfcdd16997",
+          "watermark": "No clearly legible added watermark observed in reviewed image",
+          "sources": [
+            {
+              "url": "https://github.com/EDMOK/blue-fish-archive/blob/3ccab6c91c0f104e618f42a7d27552345db9c6d1/media/c40ead5e21b7b7bf39f81e2fa7f0cc14.png",
+              "author": "",
+              "license": ""
+            }
+          ]
+        },
+        {
+          "id": "aigengtu-1073",
+          "dimensions": [
+            1080,
+            1080
+          ],
+          "frames": 1,
+          "bytes": 160677,
+          "sha256": "662aa363c3296f403a120eabb6c6d2af40c92f1d55a9ddeb57602e8487228127",
+          "watermark": "No clearly legible added watermark observed in reviewed image",
+          "sources": [
+            {
+              "url": "https://aigengtu.com/zh/meme/1073"
+            },
+            {
+              "url": "https://img.aigengtu.com/meme/1073.jpg"
+            }
+          ]
+        }
+      ],
+      "reason": "Same image and caption; 1254² original is clearer than 1080² version.",
+      "sourceCountAfter": 3,
+      "publishedIdPreserved": false
+    },
+    {
+      "decision": "merge",
+      "pairIndex": 3,
+      "survivor": "blue-fish-angry",
+      "removed": "aigengtu-1094",
+      "chosenOriginal": "blue-fish-angry",
+      "before": [
+        {
+          "id": "blue-fish-angry",
+          "dimensions": [
+            1254,
+            1254
+          ],
+          "frames": 1,
+          "bytes": 1976189,
+          "sha256": "9c374e26e11ac35f40d15d9dff16c61303b34187953e0aa0abe0712ae140a2c7",
+          "watermark": "No clearly legible added watermark observed in reviewed image",
+          "sources": [
+            {
+              "url": "https://github.com/EDMOK/blue-fish-archive/blob/3ccab6c91c0f104e618f42a7d27552345db9c6d1/media/1d4cff23-a424-4edc-b2c8-725933eda826.png",
+              "author": "",
+              "license": ""
+            }
+          ]
+        },
+        {
+          "id": "aigengtu-1094",
+          "dimensions": [
+            1254,
+            1254
+          ],
+          "frames": 1,
+          "bytes": 254942,
+          "sha256": "503daa4055b016ca172b6a8c6b3a171ebfda2ae752c77a734eb519a361c9faad",
+          "watermark": "No clearly legible added watermark observed in reviewed image",
+          "sources": [
+            {
+              "url": "https://aigengtu.com/zh/meme/1094"
+            },
+            {
+              "url": "https://img.aigengtu.com/meme/1094.jpg"
+            }
+          ]
+        }
+      ],
+      "reason": "Same reaction at 1254², no quality improvement; keep published original and ID.",
+      "sourceCountAfter": 3,
+      "publishedIdPreserved": true
+    },
+    {
+      "decision": "merge",
+      "pairIndex": 4,
+      "survivor": "archive-1fbc1f4ede2b",
+      "removed": "aigengtu-1233",
+      "chosenOriginal": "aigengtu-1233",
+      "before": [
+        {
+          "id": "archive-1fbc1f4ede2b",
+          "dimensions": [
+            648,
+            648
+          ],
+          "frames": 1,
+          "bytes": 492935,
+          "sha256": "1fbc1f4ede2b0392ae43713bf18bd5dad0866dbd14b25b0248d7e29bdaf7af24",
+          "watermark": "No clearly legible added watermark observed in reviewed image",
+          "sources": [
+            {
+              "url": "https://github.com/EDMOK/blue-fish-archive/blob/3ccab6c91c0f104e618f42a7d27552345db9c6d1/media/e98292fac0c472019ce2979143d05446_0.png",
+              "author": "",
+              "license": ""
+            }
+          ]
+        },
+        {
+          "id": "aigengtu-1233",
+          "dimensions": [
+            960,
+            960
+          ],
+          "frames": 1,
+          "bytes": 386748,
+          "sha256": "33afb8acd63fccd5ee6672f4e94a9ee360a5d35ca3b7fc6e8f36107ff6b91a5d",
+          "watermark": "No clearly legible added watermark observed in reviewed image",
+          "sources": [
+            {
+              "url": "https://aigengtu.com/zh/meme/1233"
+            },
+            {
+              "url": "https://img.aigengtu.com/meme/1233.jpg"
+            }
+          ]
+        }
+      ],
+      "reason": "Same jealous reaction and caption; 960² version preserves more detail than 648².",
+      "sourceCountAfter": 3,
+      "publishedIdPreserved": false
+    },
+    {
+      "decision": "merge",
+      "pairIndex": 6,
+      "survivor": "archive-63e713f954cb",
+      "removed": "bili-f2b9fa9dfec6",
+      "chosenOriginal": "bili-f2b9fa9dfec6",
+      "before": [
+        {
+          "id": "archive-63e713f954cb",
+          "dimensions": [
+            850,
+            850
+          ],
+          "frames": 1,
+          "bytes": 907385,
+          "sha256": "63e713f954cbc1ebf987707ed9a4fcaae15e227b8d27cea9a8627aee73db2ef7",
+          "watermark": "No clearly legible added watermark observed in reviewed image",
+          "sources": [
+            {
+              "url": "https://github.com/EDMOK/blue-fish-archive/blob/3ccab6c91c0f104e618f42a7d27552345db9c6d1/media/3ee4d90053d078956c9a4856be2f937212464df8.png",
+              "author": "",
+              "license": ""
+            }
+          ]
+        },
+        {
+          "id": "bili-f2b9fa9dfec6",
+          "dimensions": [
+            1500,
+            1500
+          ],
+          "frames": 1,
+          "bytes": 554047,
+          "sha256": "f2b9fa9dfec6157b3d8f1764b112d4064587d9602872e1caf1ac4652eaacd009",
+          "watermark": "No clearly legible added watermark observed in reviewed image",
+          "sources": [
+            {
+              "url": "https://www.bilibili.com/video/BV126bi6XET2/",
+              "author": "",
+              "license": ""
+            },
+            {
+              "url": "https://i0.hdslb.com/bfs/new_dyn/155dcc951443f5edfc3fbb2851a185653546852945300431.jpg",
+              "author": "",
+              "license": ""
+            }
+          ]
+        }
+      ],
+      "reason": "Same worm reaction and caption; 1500² version is clearer than 850².",
+      "sourceCountAfter": 3,
+      "publishedIdPreserved": false
+    },
+    {
+      "decision": "merge",
+      "pairIndex": 7,
+      "survivor": "archive-66b22cb485f0",
+      "removed": "bili-bb8baa1d7e1d",
+      "chosenOriginal": "archive-66b22cb485f0",
+      "before": [
+        {
+          "id": "archive-66b22cb485f0",
+          "dimensions": [
+            1122,
+            1122
+          ],
+          "frames": 1,
+          "bytes": 874825,
+          "sha256": "66b22cb485f03ee2a78093fb2a1b668bbcc052c43f533b5d544ed2a19d8638de",
+          "watermark": "No clearly legible added watermark observed in reviewed image",
+          "sources": [
+            {
+              "url": "https://github.com/EDMOK/blue-fish-archive/blob/3ccab6c91c0f104e618f42a7d27552345db9c6d1/media/image007.png",
+              "author": "",
+              "license": ""
+            }
+          ]
+        },
+        {
+          "id": "bili-bb8baa1d7e1d",
+          "dimensions": [
+            1122,
+            1122
+          ],
+          "frames": 1,
+          "bytes": 747992,
+          "sha256": "bb8baa1d7e1d6f1e0e69f2c41283987dd83d69726ad39fcf84a3593a4edffe1a",
+          "watermark": "No clearly legible added watermark observed in reviewed image",
+          "sources": [
+            {
+              "url": "https://www.bilibili.com/video/BV1Q4b16pE3X/",
+              "author": "",
+              "license": ""
+            },
+            {
+              "url": "https://i0.hdslb.com/bfs/new_dyn/ac57774edc3ac89c060d7652f70449d93707026634967523.png",
+              "author": "",
+              "license": ""
+            }
+          ]
+        }
+      ],
+      "reason": "Same folded-arm reaction, equal 1122² quality; retain first catalog ID.",
+      "sourceCountAfter": 3,
+      "publishedIdPreserved": false
+    },
+    {
+      "decision": "merge",
+      "pairIndex": 26,
+      "survivor": "archive-66b22cb485f0",
+      "removed": "archive-lmy-0283",
+      "chosenOriginal": "archive-66b22cb485f0",
+      "before": [
+        {
+          "id": "archive-66b22cb485f0",
+          "dimensions": [
+            1122,
+            1122
+          ],
+          "frames": 1,
+          "bytes": 874825,
+          "sha256": "66b22cb485f03ee2a78093fb2a1b668bbcc052c43f533b5d544ed2a19d8638de",
+          "watermark": "No clearly legible added watermark observed in reviewed image",
+          "sources": [
+            {
+              "url": "https://github.com/EDMOK/blue-fish-archive/blob/3ccab6c91c0f104e618f42a7d27552345db9c6d1/media/image007.png",
+              "author": "",
+              "license": ""
+            },
+            {
+              "url": "https://www.bilibili.com/video/BV1Q4b16pE3X/",
+              "author": "",
+              "license": ""
+            },
+            {
+              "url": "https://i0.hdslb.com/bfs/new_dyn/ac57774edc3ac89c060d7652f70449d93707026634967523.png",
+              "author": "",
+              "license": ""
+            }
+          ]
+        },
+        {
+          "id": "archive-lmy-0283",
+          "dimensions": [
+            1023,
+            1023
+          ],
+          "frames": 1,
+          "bytes": 75906,
+          "sha256": "87897c2c79fb71a6d0ca217b444c922d80ab696269892d84f04f4bc46196c5a4",
+          "watermark": "No clearly legible added watermark observed in reviewed image",
+          "sources": [
+            {
+              "url": "https://xn--pssy23gqgbz2d718b.com/works/deepseek202609230043.html",
+              "author": "",
+              "license": ""
+            }
+          ]
+        }
+      ],
+      "reason": "Same folded-arm reaction; keep 1122² instead of 1023².",
+      "sourceCountAfter": 4,
+      "publishedIdPreserved": false
+    },
+    {
+      "decision": "merge",
+      "pairIndex": 9,
+      "survivor": "blue-fish-oh",
+      "removed": "bili-49daf1c3256a",
+      "chosenOriginal": "blue-fish-oh",
+      "before": [
+        {
+          "id": "blue-fish-oh",
+          "dimensions": [
+            1026,
+            1026
+          ],
+          "frames": 1,
+          "bytes": 116205,
+          "sha256": "0e6f7d3da4d9149c44c190fbc1402519837ac154207a3cd8fecd2e24eb92e3a2",
+          "watermark": "No clearly legible added watermark observed in reviewed image",
+          "sources": [
+            {
+              "url": "https://github.com/EDMOK/blue-fish-archive/blob/3ccab6c91c0f104e618f42a7d27552345db9c6d1/media/299e99da92313229a42d188bb08dacce7aa33445.jpg",
+              "author": "",
+              "license": ""
+            }
+          ]
+        },
+        {
+          "id": "bili-49daf1c3256a",
+          "dimensions": [
+            1026,
+            1026
+          ],
+          "frames": 1,
+          "bytes": 65384,
+          "sha256": "49daf1c3256a1f2e88453541e45ea5f95d99cdadbdd020528127acfa6354f563",
+          "watermark": "No clearly legible added watermark observed in reviewed image",
+          "sources": [
+            {
+              "url": "https://www.bilibili.com/video/BV1m88766EeU/",
+              "author": "",
+              "license": ""
+            },
+            {
+              "url": "https://i0.hdslb.com/bfs/new_dyn/1fb97ce3e69aa8c04dc7cfa5829f10e73707020492408911.jpg",
+              "author": "",
+              "license": ""
+            }
+          ]
+        }
+      ],
+      "reason": "Same eye expression and caption at 1026²; preserve published ID. Other eye-expression variant bili-784010e0b6de remains separate.",
+      "sourceCountAfter": 3,
+      "publishedIdPreserved": true
+    },
+    {
+      "decision": "merge",
+      "pairIndex": 11,
+      "survivor": "blue-fish-pressure",
+      "removed": "bili-b2f01bbcc65f",
+      "chosenOriginal": "bili-b2f01bbcc65f",
+      "before": [
+        {
+          "id": "blue-fish-pressure",
+          "dimensions": [
+            648,
+            648
+          ],
+          "frames": 1,
+          "bytes": 591746,
+          "sha256": "46fa9c3483a43b0df622179f70ef31f6d9528e85395422d47d5392e743212409",
+          "watermark": "No clearly legible added watermark observed in reviewed image",
+          "sources": [
+            {
+              "url": "https://github.com/EDMOK/blue-fish-archive/blob/3ccab6c91c0f104e618f42a7d27552345db9c6d1/media/08fd0ba72a47b36f62eac09ee8e6b7a4_0.png",
+              "author": "",
+              "license": ""
+            }
+          ]
+        },
+        {
+          "id": "bili-b2f01bbcc65f",
+          "dimensions": [
+            1254,
+            1254
+          ],
+          "frames": 1,
+          "bytes": 1821426,
+          "sha256": "b2f01bbcc65fe15806a00fa1698f0f889b537ecd1d42a363623501b8970ce107",
+          "watermark": "No clearly legible added watermark observed in reviewed image",
+          "sources": [
+            {
+              "url": "https://www.bilibili.com/video/BV1EvKK6NEoi/",
+              "author": "",
+              "license": ""
+            },
+            {
+              "url": "https://i0.hdslb.com/bfs/new_dyn/f717d65f96d4f0cec8ae40359c37a0e83546384821127812.png",
+              "author": "",
+              "license": ""
+            }
+          ]
+        }
+      ],
+      "reason": "Same image/caption; replace 648² published asset with clear 1254² original while retaining ID.",
+      "sourceCountAfter": 3,
+      "publishedIdPreserved": true
+    },
+    {
+      "decision": "merge",
+      "pairIndex": 13,
+      "survivor": "aigengtu-1102",
+      "removed": "bili-3c773cef364a",
+      "chosenOriginal": "bili-3c773cef364a",
+      "before": [
+        {
+          "id": "aigengtu-1102",
+          "dimensions": [
+            320,
+            320
+          ],
+          "frames": 33,
+          "bytes": 1125465,
+          "sha256": "39c920efbdc4e1b905ae0301139867b326228b0072965d2118b0abfb3b2cc0b3",
+          "watermark": "No clearly legible added watermark observed in reviewed image",
+          "sources": [
+            {
+              "url": "https://aigengtu.com/zh/meme/1102"
+            },
+            {
+              "url": "https://img.aigengtu.com/meme/1102.gif"
+            }
+          ]
+        },
+        {
+          "id": "bili-3c773cef364a",
+          "dimensions": [
+            320,
+            320
+          ],
+          "frames": 33,
+          "bytes": 1731152,
+          "sha256": "3c773cef364a7b9f3f0ea39740662a97e160b25ac65714fbccf1cef12cc936c7",
+          "watermark": "No clearly legible added watermark observed in reviewed image",
+          "sources": [
+            {
+              "url": "https://www.bilibili.com/video/BV1q2Ye6yEAZ/",
+              "author": "",
+              "license": ""
+            },
+            {
+              "url": "https://i0.hdslb.com/bfs/new_dyn/19e00ad3e3b6be181db24463f81437a6227638255.gif",
+              "author": "",
+              "license": ""
+            }
+          ]
+        }
+      ],
+      "reason": "Same 33-frame 2750ms animation, five corresponding frames reviewed; Bilibili has less visible palette dithering at equal 320² size.",
+      "sourceCountAfter": 4,
+      "publishedIdPreserved": false
+    },
+    {
+      "decision": "merge",
+      "pairIndex": 14,
+      "survivor": "archive-7df3c4067fdd",
+      "removed": "bili-3a72ee45f338",
+      "chosenOriginal": "archive-7df3c4067fdd",
+      "before": [
+        {
+          "id": "archive-7df3c4067fdd",
+          "dimensions": [
+            960,
+            960
+          ],
+          "frames": 1,
+          "bytes": 149184,
+          "sha256": "7df3c4067fdd0c3caf849946ab5f9e04e3d3f3a23b51b391367976596d935e62",
+          "watermark": "No clearly legible added watermark observed in reviewed image",
+          "sources": [
+            {
+              "url": "https://github.com/EDMOK/blue-fish-archive/blob/3ccab6c91c0f104e618f42a7d27552345db9c6d1/media/b18c5284f99c8151c1f2988f10477a89.jpg",
+              "author": "",
+              "license": ""
+            }
+          ]
+        },
+        {
+          "id": "bili-3a72ee45f338",
+          "dimensions": [
+            960,
+            960
+          ],
+          "frames": 1,
+          "bytes": 104913,
+          "sha256": "3a72ee45f338cf073a07b4b5baec662a14af8fdd65f94a605439b7e9d8094c5b",
+          "watermark": "No clearly legible added watermark observed in reviewed image",
+          "sources": [
+            {
+              "url": "https://www.bilibili.com/video/BV1VhgF6EEnY/",
+              "author": "",
+              "license": ""
+            },
+            {
+              "url": "https://i0.hdslb.com/bfs/new_dyn/458521910f1277a66502cf0d0d5e85193546899135072989.jpg",
+              "author": "",
+              "license": ""
+            }
+          ]
+        }
+      ],
+      "reason": "Same two-dialog reaction and frame at 960²; preserve first original and union provenance.",
+      "sourceCountAfter": 3,
+      "publishedIdPreserved": false
+    },
+    {
+      "decision": "merge",
+      "pairIndex": 15,
+      "survivor": "archive-75228197b194",
+      "removed": "bili-494edbeacbbc",
+      "chosenOriginal": "bili-494edbeacbbc",
+      "before": [
+        {
+          "id": "archive-75228197b194",
+          "dimensions": [
+            463,
+            648
+          ],
+          "frames": 1,
+          "bytes": 482388,
+          "sha256": "75228197b1940a3e8fa53cee3140f33150b93bff2d2dd77871d02753c5455dad",
+          "watermark": "No clearly legible added watermark observed in reviewed image",
+          "sources": [
+            {
+              "url": "https://github.com/EDMOK/blue-fish-archive/blob/3ccab6c91c0f104e618f42a7d27552345db9c6d1/media/bc4d4991f4fdbe7cd4c88f9b3aa45cdf_0.png",
+              "author": "",
+              "license": ""
+            }
+          ]
+        },
+        {
+          "id": "bili-494edbeacbbc",
+          "dimensions": [
+            914,
+            1280
+          ],
+          "frames": 1,
+          "bytes": 145700,
+          "sha256": "494edbeacbbc0f73d679665693842fa694e132ad5ad6179fc36169220e75abe5",
+          "watermark": "No clearly legible added watermark observed in reviewed image",
+          "sources": [
+            {
+              "url": "https://www.bilibili.com/video/BV1BGuv6WEff/",
+              "author": "",
+              "license": ""
+            },
+            {
+              "url": "https://i0.hdslb.com/bfs/new_dyn/eece5d323f1dc021f736a3a8cade0f6d617328474.jpg",
+              "author": "",
+              "license": ""
+            }
+          ]
+        }
+      ],
+      "reason": "Same fish-search comic; full 914×1280 image is clearer than 463×648 copy.",
+      "sourceCountAfter": 3,
+      "publishedIdPreserved": false
+    },
+    {
+      "decision": "merge",
+      "pairIndex": 22,
+      "survivor": "archive-0d5cbedf7fde",
+      "removed": "aigengtu-1103",
+      "chosenOriginal": "archive-0d5cbedf7fde",
+      "before": [
+        {
+          "id": "archive-0d5cbedf7fde",
+          "dimensions": [
+            1024,
+            862
+          ],
+          "frames": 1,
+          "bytes": 800563,
+          "sha256": "0d5cbedf7fdeb5d35385b3e9822fae03fa4c448418b15533a67c0b1507142618",
+          "watermark": "Visible NGA footer; preserved",
+          "sources": [
+            {
+              "url": "https://github.com/EDMOK/blue-fish-archive/blob/3ccab6c91c0f104e618f42a7d27552345db9c6d1/media/image005.png",
+              "author": "",
+              "license": ""
+            }
+          ]
+        },
+        {
+          "id": "aigengtu-1103",
+          "dimensions": [
+            850,
+            715
+          ],
+          "frames": 1,
+          "bytes": 123816,
+          "sha256": "76d9988f23f0996dea09aed63c37b686cd4bb170c440bbe162253711d992755c",
+          "watermark": "Visible lower-edge social-platform attribution",
+          "sources": [
+            {
+              "url": "https://aigengtu.com/zh/meme/1103"
+            },
+            {
+              "url": "https://img.aigengtu.com/meme/1103.webp"
+            }
+          ]
+        }
+      ],
+      "reason": "Same image/caption; higher-resolution 1024×862 version preferred over 850×715; its existing NGA watermark remains intact.",
+      "sourceCountAfter": 3,
+      "publishedIdPreserved": false
+    },
+    {
+      "decision": "merge",
+      "pairIndex": 27,
+      "survivor": "archive-937ab983687f",
+      "removed": "bili-94dcba77521d",
+      "chosenOriginal": "archive-937ab983687f",
+      "before": [
+        {
+          "id": "archive-937ab983687f",
+          "dimensions": [
+            1080,
+            1080
+          ],
+          "frames": 1,
+          "bytes": 1054477,
+          "sha256": "937ab983687f8cc275e17783c68a05127a7fa9c8ed2269b5418f0a58d62bbd4c",
+          "watermark": "No clearly legible added watermark observed in reviewed image",
+          "sources": [
+            {
+              "url": "https://github.com/EDMOK/blue-fish-archive/blob/3ccab6c91c0f104e618f42a7d27552345db9c6d1/media/c4ea6ed066cc67cba12f651f2c6745c4.png",
+              "author": "",
+              "license": ""
+            }
+          ]
+        },
+        {
+          "id": "bili-94dcba77521d",
+          "dimensions": [
+            1024,
+            1024
+          ],
+          "frames": 1,
+          "bytes": 1064069,
+          "sha256": "94dcba77521df0a5d3b540be50ea7a99af1c6c68a62841d0a92ac1cd3aa32582",
+          "watermark": "No clearly legible added watermark observed in reviewed image",
+          "sources": [
+            {
+              "url": "https://www.bilibili.com/video/BV1Gf8i6eEcv/",
+              "author": "",
+              "license": ""
+            },
+            {
+              "url": "https://i0.hdslb.com/bfs/new_dyn/70f1e2701b07e3d56da0b59ef0533d12471657802.png",
+              "author": "",
+              "license": ""
+            }
+          ]
+        }
+      ],
+      "reason": "Same goofy face reaction; 1080² archive image visibly sharper than Bilibili 1024² copy.",
+      "sourceCountAfter": 3,
+      "publishedIdPreserved": false
+    },
+    {
+      "decision": "merge",
+      "pairIndex": 28,
+      "survivor": "archive-fc23e3c461db",
+      "removed": "bili-398f50591455",
+      "chosenOriginal": "bili-398f50591455",
+      "before": [
+        {
+          "id": "archive-fc23e3c461db",
+          "dimensions": [
+            196,
+            230
+          ],
+          "frames": 1,
+          "bytes": 12901,
+          "sha256": "fc23e3c461db43286519720ebd69ef8c90ea7a3b61b9c04c00293b16abca0d4b",
+          "watermark": "No clearly legible added watermark observed in reviewed image",
+          "sources": [
+            {
+              "url": "https://github.com/EDMOK/blue-fish-archive/blob/3ccab6c91c0f104e618f42a7d27552345db9c6d1/media/a2353f9af593df8c76bdcd29bf47ad69.jpg",
+              "author": "",
+              "license": ""
+            }
+          ]
+        },
+        {
+          "id": "bili-398f50591455",
+          "dimensions": [
+            928,
+            1120
+          ],
+          "frames": 1,
+          "bytes": 1304716,
+          "sha256": "398f50591455879c6795485ca7cf392d654ff7d222949a8ed97166a97bdb6a3f",
+          "watermark": "No clearly legible added watermark observed in reviewed image",
+          "sources": [
+            {
+              "url": "https://www.bilibili.com/video/BV16yYi69EQT/",
+              "author": "",
+              "license": ""
+            },
+            {
+              "url": "https://i0.hdslb.com/bfs/new_dyn/cb719388f07150083b21e0bd4ced892c1310564662.png",
+              "author": "",
+              "license": ""
+            }
+          ]
+        }
+      ],
+      "reason": "Same pot-helmet reaction; existing 928×1120 source is substantially clearer than 196×230 thumbnail.",
+      "sourceCountAfter": 3,
+      "publishedIdPreserved": false
+    },
+    {
+      "decision": "merge",
+      "pairIndex": 74,
+      "survivor": "aigengtu-1327",
+      "removed": "bili-796af7c8cd54",
+      "chosenOriginal": "aigengtu-1327",
+      "before": [
+        {
+          "id": "aigengtu-1327",
+          "dimensions": [
+            960,
+            960
+          ],
+          "frames": 1,
+          "bytes": 145701,
+          "sha256": "2197124ad10b5f01f6523ad787d543693006ad4c27f90058fdcf0ab3f3dae2ce",
+          "watermark": "No clearly legible added watermark observed in reviewed image",
+          "sources": [
+            {
+              "url": "https://aigengtu.com/zh/meme/1327"
+            },
+            {
+              "url": "https://img.aigengtu.com/meme/1327.jpeg"
+            }
+          ]
+        },
+        {
+          "id": "bili-796af7c8cd54",
+          "dimensions": [
+            960,
+            960
+          ],
+          "frames": 1,
+          "bytes": 127987,
+          "sha256": "796af7c8cd54d085671ca933aaaf0dcc8ff595009c8567b64e25ef176bc869c7",
+          "watermark": "Visible Xiaohongshu account watermark",
+          "sources": [
+            {
+              "url": "https://www.bilibili.com/video/BV1g34162EQP/",
+              "author": "",
+              "license": ""
+            },
+            {
+              "url": "https://i0.hdslb.com/bfs/new_dyn/2dc65730767ce859989356df8ed2235d439977983.jpg",
+              "author": "",
+              "license": ""
+            }
+          ]
+        }
+      ],
+      "reason": "Same image/caption, both 960²; available clean version preferred over Bilibili copy with added Xiaohongshu watermark. No watermark removal performed.",
+      "sourceCountAfter": 4,
+      "publishedIdPreserved": false
+    },
+    {
+      "decision": "merge",
+      "pairIndex": 75,
+      "survivor": "archive-lmy-0226",
+      "removed": "aigengtu-1361",
+      "chosenOriginal": "archive-lmy-0226",
+      "before": [
+        {
+          "id": "archive-lmy-0226",
+          "dimensions": [
+            863,
+            890
+          ],
+          "frames": 1,
+          "bytes": 764436,
+          "sha256": "9bc448f9cc396f6c3fc4ffea4370214536dfbfc3ba574ee23e6ed852a93fdd90",
+          "watermark": "No clearly legible added watermark observed in reviewed image",
+          "sources": [
+            {
+              "url": "https://xn--pssy23gqgbz2d718b.com/works/deepseek202609200020.html",
+              "author": "",
+              "license": ""
+            },
+            {
+              "url": "https://www.douyin.com/user/MS4wLjABAAAAwMNMWzk5tHwsZoRm6EHzxbXhIrNhckdmhHqgdwWU2_bAAhm4BjVSdfjiVW2ehPVa?from_tab_name=main&modal_id=7686855293511611046",
+              "author": "",
+              "license": ""
+            }
+          ]
+        },
+        {
+          "id": "aigengtu-1361",
+          "dimensions": [
+            619,
+            648
+          ],
+          "frames": 1,
+          "bytes": 456763,
+          "sha256": "624288a8b5bd4ddb9a56d728b05388d889c6283921a4fe07ebc76ab1b850a270",
+          "watermark": "No clearly legible added watermark observed in reviewed image",
+          "sources": [
+            {
+              "url": "https://aigengtu.com/zh/meme/1361"
+            },
+            {
+              "url": "https://img.aigengtu.com/meme/1361.png"
+            }
+          ]
+        }
+      ],
+      "reason": "Same caption and image; keep fuller 863×890 frame and detail rather than 619×648 copy.",
+      "sourceCountAfter": 4,
+      "publishedIdPreserved": false
+    },
+    {
+      "decision": "merge",
+      "pairIndex": 76,
+      "survivor": "archive-lmy-0206",
+      "removed": "bili-30660fba2269",
+      "chosenOriginal": "bili-30660fba2269",
+      "before": [
+        {
+          "id": "archive-lmy-0206",
+          "dimensions": [
+            540,
+            538
+          ],
+          "frames": 1,
+          "bytes": 92096,
+          "sha256": "2b12ce21c4b9433f2f8fefe7e036d19f6fb7f9b24a6c4947be8cf78cb8c60de3",
+          "watermark": "No clearly legible added watermark observed in reviewed image",
+          "sources": [
+            {
+              "url": "https://xn--pssy23gqgbz2d718b.com/works/deepseek202609190002.html",
+              "author": "",
+              "license": ""
+            }
+          ]
+        },
+        {
+          "id": "bili-30660fba2269",
+          "dimensions": [
+            1254,
+            1254
+          ],
+          "frames": 1,
+          "bytes": 1696227,
+          "sha256": "30660fba2269afb9624d612563d9ed0f65ebbfe306dbdd6bc4587270fd343378",
+          "watermark": "No clearly legible added watermark observed in reviewed image",
+          "sources": [
+            {
+              "url": "https://www.bilibili.com/video/BV1Knei6NE33/",
+              "author": "",
+              "license": ""
+            },
+            {
+              "url": "https://i0.hdslb.com/bfs/new_dyn/fc49c4684f950e7a2b1aecdfec5020fd480146133.png",
+              "author": "",
+              "license": ""
+            }
+          ]
+        }
+      ],
+      "reason": "Same lenient robot-uprising caption; keep clear complete 1254² source over 540×538 copy.",
+      "sourceCountAfter": 3,
+      "publishedIdPreserved": false
+    },
+    {
+      "decision": "merge",
+      "pairIndex": 246,
+      "survivor": "archive-lmy-0200",
+      "removed": "aigengtu-1270",
+      "chosenOriginal": "archive-lmy-0200",
+      "before": [
+        {
+          "id": "archive-lmy-0200",
+          "dimensions": [
+            960,
+            960
+          ],
+          "frames": 1,
+          "bytes": 963617,
+          "sha256": "aa70a5b2514c72bf14a5a8024916d09cdb3c01d7d9f75fc4bbac5b012c33cb8f",
+          "watermark": "No clearly legible added watermark observed in reviewed image",
+          "sources": [
+            {
+              "url": "https://github.com/EDMOK/blue-fish-archive/blob/3ccab6c91c0f104e618f42a7d27552345db9c6d1/media/image009.png",
+              "author": "",
+              "license": ""
+            }
+          ]
+        },
+        {
+          "id": "aigengtu-1270",
+          "dimensions": [
+            850,
+            806
+          ],
+          "frames": 1,
+          "bytes": 49314,
+          "sha256": "331d16dd0a3597f4b7f64a8ae8b5451aa79ba633d18ce8deb37e95780d974315",
+          "watermark": "No clearly legible added watermark observed in reviewed image",
+          "sources": [
+            {
+              "url": "https://aigengtu.com/zh/meme/1270"
+            },
+            {
+              "url": "https://img.aigengtu.com/meme/1270.webp"
+            }
+          ]
+        }
+      ],
+      "reason": "Same dead-tired reaction and caption; keep fuller 960² frame over 850×806 cropped copy.",
+      "sourceCountAfter": 3,
+      "publishedIdPreserved": false
+    },
+    {
+      "decision": "merge",
+      "pairIndex": 257,
+      "survivor": "blue-fish-not-fat",
+      "removed": "bili-0c1262eb0ee4",
+      "chosenOriginal": "bili-0c1262eb0ee4",
+      "before": [
+        {
+          "id": "blue-fish-not-fat",
+          "dimensions": [
+            512,
+            512
+          ],
+          "frames": 1,
+          "bytes": 45058,
+          "sha256": "960709df85f499270cf8891f48261f4f6cdc9ff43c78c3369b54d776e66338b3",
+          "watermark": "No clearly legible added watermark observed in reviewed image",
+          "sources": [
+            {
+              "url": "https://github.com/EDMOK/blue-fish-archive/blob/3ccab6c91c0f104e618f42a7d27552345db9c6d1/media/27371e3c-134a-4e39-b8f5-3903ca948c12.webp",
+              "author": "",
+              "license": ""
+            }
+          ]
+        },
+        {
+          "id": "bili-0c1262eb0ee4",
+          "dimensions": [
+            1254,
+            1254
+          ],
+          "frames": 1,
+          "bytes": 1548948,
+          "sha256": "0c1262eb0ee4206a202f2326f5c50776468cbb3dd68869823ea82fb4cd4f771f",
+          "watermark": "No clearly legible added watermark observed in reviewed image",
+          "sources": [
+            {
+              "url": "https://www.bilibili.com/video/BV1BtND69Euf/",
+              "author": "",
+              "license": ""
+            },
+            {
+              "url": "https://i0.hdslb.com/bfs/new_dyn/e9ba7c5f713cfdea437ccd2dee5814314168597.png",
+              "author": "",
+              "license": ""
+            }
+          ]
+        }
+      ],
+      "reason": "Same image/caption; clear 1254² source replaces 512² published original, published ID remains.",
+      "sourceCountAfter": 3,
+      "publishedIdPreserved": true
+    },
+    {
+      "decision": "merge",
+      "pairIndex": 453,
+      "survivor": "blue-fish-great",
+      "removed": "aigengtu-1080",
+      "chosenOriginal": "aigengtu-1080",
+      "before": [
+        {
+          "id": "blue-fish-great",
+          "dimensions": [
+            512,
+            512
+          ],
+          "frames": 1,
+          "bytes": 53132,
+          "sha256": "180e599a0deb187f802ba1501af26c17b72921ad3b2de5b5a210dba1ca8fbdde",
+          "watermark": "No clearly legible added watermark observed in reviewed image",
+          "sources": [
+            {
+              "url": "https://github.com/EDMOK/blue-fish-archive/blob/3ccab6c91c0f104e618f42a7d27552345db9c6d1/media/197841f8-c9a3-43d0-842c-7b151ae84793.webp",
+              "author": "",
+              "license": ""
+            }
+          ]
+        },
+        {
+          "id": "aigengtu-1080",
+          "dimensions": [
+            1080,
+            1080
+          ],
+          "frames": 1,
+          "bytes": 169614,
+          "sha256": "82b8d24505413ac004f39d7dd6f7d80c92ede95bfe1d3abf41de185eaeb96d69",
+          "watermark": "No clearly legible added watermark observed in reviewed image",
+          "sources": [
+            {
+              "url": "https://aigengtu.com/zh/meme/1080"
+            },
+            {
+              "url": "https://img.aigengtu.com/meme/1080.jpg"
+            }
+          ]
+        }
+      ],
+      "reason": "Same praise reaction/caption; clear 1080² source replaces 512² published original, published ID remains.",
+      "sourceCountAfter": 3,
+      "publishedIdPreserved": true
+    },
+    {
+      "decision": "merge",
+      "pairIndex": 527,
+      "survivor": "archive-33cff860263d",
+      "removed": "bili-708b4ebc2120",
+      "chosenOriginal": "bili-708b4ebc2120",
+      "before": [
+        {
+          "id": "archive-33cff860263d",
+          "dimensions": [
+            512,
+            512
+          ],
+          "frames": 1,
+          "bytes": 70076,
+          "sha256": "33cff860263d254e8c0074a1b9c63b75d24941b02eb0648d03905b5c8ecb8242",
+          "watermark": "No clearly legible added watermark observed in reviewed image",
+          "sources": [
+            {
+              "url": "https://github.com/EDMOK/blue-fish-archive/blob/3ccab6c91c0f104e618f42a7d27552345db9c6d1/media/dfcf4a55-3330-4ac9-bc04-f227cac9b606.webp",
+              "author": "",
+              "license": ""
+            }
+          ]
+        },
+        {
+          "id": "bili-708b4ebc2120",
+          "dimensions": [
+            1254,
+            1254
+          ],
+          "frames": 1,
+          "bytes": 1898024,
+          "sha256": "708b4ebc2120dacadfe65b2639deade53285f9678bada2560c86aa92d23b77a3",
+          "watermark": "No clearly legible added watermark observed in reviewed image",
+          "sources": [
+            {
+              "url": "https://www.bilibili.com/video/BV1BtND69Euf/",
+              "author": "",
+              "license": ""
+            },
+            {
+              "url": "https://i0.hdslb.com/bfs/new_dyn/c280957e80e28bad9a485e4ffe0e6e444168597.png",
+              "author": "",
+              "license": ""
+            }
+          ]
+        }
+      ],
+      "reason": "Same angry notebook reaction/caption; clearer larger Bilibili original preferred.",
+      "sourceCountAfter": 3,
+      "publishedIdPreserved": false
+    },
+    {
+      "decision": "merge",
+      "pairIndex": 529,
+      "survivor": "archive-a5ffb0379e0e",
+      "removed": "bili-02e2ff64e070",
+      "chosenOriginal": "bili-02e2ff64e070",
+      "before": [
+        {
+          "id": "archive-a5ffb0379e0e",
+          "dimensions": [
+            512,
+            512
+          ],
+          "frames": 1,
+          "bytes": 36286,
+          "sha256": "a5ffb0379e0e0e3059c2ed2b59eaa4de6182a8937930e6de6fceeb068621346c",
+          "watermark": "No clearly legible added watermark observed in reviewed image",
+          "sources": [
+            {
+              "url": "https://github.com/EDMOK/blue-fish-archive/blob/3ccab6c91c0f104e618f42a7d27552345db9c6d1/media/9e565fc3-458e-4b0e-aa6b-0adda4430e24.webp",
+              "author": "",
+              "license": ""
+            }
+          ]
+        },
+        {
+          "id": "bili-02e2ff64e070",
+          "dimensions": [
+            960,
+            960
+          ],
+          "frames": 1,
+          "bytes": 184087,
+          "sha256": "02e2ff64e07023cef74c111f31deb3081b6e40f880923ab3f7bcf9988496bf96",
+          "watermark": "No clearly legible added watermark observed in reviewed image",
+          "sources": [
+            {
+              "url": "https://www.bilibili.com/video/BV1LfhA6EEZn/",
+              "author": "",
+              "license": ""
+            },
+            {
+              "url": "https://i0.hdslb.com/bfs/new_dyn/05c31ae2c293529c1c8bfea6bd717b421465801.jpg",
+              "author": "",
+              "license": ""
+            }
+          ]
+        }
+      ],
+      "reason": "Same mistaken-character reaction/caption; clear 960² source preferred over small transparent copy.",
+      "sourceCountAfter": 3,
+      "publishedIdPreserved": false
+    },
+    {
+      "decision": "merge",
+      "pairIndex": 530,
+      "survivor": "blue-fish-ciallo",
+      "removed": "bili-684a3bca5d42",
+      "chosenOriginal": "bili-684a3bca5d42",
+      "before": [
+        {
+          "id": "blue-fish-ciallo",
+          "dimensions": [
+            512,
+            512
+          ],
+          "frames": 1,
+          "bytes": 49148,
+          "sha256": "aca9b7f44d306bb7eb631d80c5e34f4768c74dc84b88a4dcf09720ebb317b4e6",
+          "watermark": "No clearly legible added watermark observed in reviewed image",
+          "sources": [
+            {
+              "url": "https://github.com/EDMOK/blue-fish-archive/blob/3ccab6c91c0f104e618f42a7d27552345db9c6d1/media/38427b32-f363-4bd9-919f-f4630f068205.webp",
+              "author": "",
+              "license": ""
+            }
+          ]
+        },
+        {
+          "id": "bili-684a3bca5d42",
+          "dimensions": [
+            960,
+            960
+          ],
+          "frames": 1,
+          "bytes": 745498,
+          "sha256": "684a3bca5d42d38e98c2450a618624747f5426711eba1e24bd49210e9887ee0e",
+          "watermark": "No clearly legible added watermark observed in reviewed image",
+          "sources": [
+            {
+              "url": "https://www.bilibili.com/video/BV1Zxbk64E6H/",
+              "author": "",
+              "license": ""
+            },
+            {
+              "url": "https://i0.hdslb.com/bfs/new_dyn/3ffb7c3507f930784af57321b3f35ca93546946992081334.jpg",
+              "author": "",
+              "license": ""
+            }
+          ]
+        }
+      ],
+      "reason": "Same greeting/caption; clear 960² source replaces 512² published original, published ID remains.",
+      "sourceCountAfter": 3,
+      "publishedIdPreserved": true
+    },
+    {
+      "decision": "exclude",
+      "removed": "archive-lmy-0208",
+      "before": [
+        {
+          "id": "archive-lmy-0208",
+          "dimensions": [
+            180,
+            242
+          ],
+          "frames": 62,
+          "bytes": 2237897,
+          "sha256": "5b6c9b99be09d58782c11742bbad2a2b5e34e14d841c1ad97c7d3c6d70d64655",
+          "watermark": "No clearly legible added watermark observed in reviewed image",
+          "sources": [
+            {
+              "url": "https://xn--pssy23gqgbz2d718b.com/works/deepseek202609200002.html",
+              "author": "",
+              "license": ""
+            },
+            {
+              "url": "https://www.bilibili.com/video/BV1GnYi63Ews",
+              "author": "",
+              "license": ""
+            }
+          ]
+        }
+      ],
+      "reason": "Full-body character illustration in a room, primarily pose/character display; excluded after parent and agent review as lacking focused everyday chat reaction."
+    }
+  ],
+  "metadataCorrections": [
+    {
+      "id": "aigengtu-965",
+      "importedAs": "aigengtu-965",
+      "pageUrl": "https://aigengtu.com/zh/meme/965",
+      "imageUrl": "https://img.aigengtu.com/meme/965.webp",
+      "previous": {
+        "text": "zZ"
+      },
+      "set": {
+        "text": "zZ"
+      },
+      "reason": "Original image visually rechecked; transcribe visible caption or secondary lettering.",
+      "actualBefore": {
+        "text": "zZ"
+      }
+    },
+    {
+      "id": "aigengtu-968",
+      "importedAs": "aigengtu-968",
+      "pageUrl": "https://aigengtu.com/zh/meme/968",
+      "imageUrl": "https://img.aigengtu.com/meme/968.webp",
+      "previous": {
+        "text": "zZ"
+      },
+      "set": {
+        "text": "zZ"
+      },
+      "reason": "Original image visually rechecked; transcribe visible caption or secondary lettering.",
+      "actualBefore": {
+        "text": "zZ"
+      }
+    },
+    {
+      "id": "aigengtu-972",
+      "importedAs": "aigengtu-972",
+      "pageUrl": "https://aigengtu.com/zh/meme/972",
+      "imageUrl": "https://img.aigengtu.com/meme/972.webp",
+      "previous": {
+        "text": "Z Z Z"
+      },
+      "set": {
+        "text": "Z\nz\nz"
+      },
+      "reason": "Original image visually rechecked; transcribe visible caption or secondary lettering.",
+      "actualBefore": {
+        "text": "Z Z Z"
+      }
+    },
+    {
+      "id": "aigengtu-1086",
+      "importedAs": "aigengtu-1086",
+      "pageUrl": "https://aigengtu.com/zh/meme/1086",
+      "imageUrl": "https://img.aigengtu.com/meme/1086.jpg",
+      "previous": {
+        "text": ""
+      },
+      "set": {
+        "text": "Z\nz"
+      },
+      "reason": "Original image visually rechecked; transcribe visible caption or secondary lettering.",
+      "actualBefore": {
+        "text": ""
+      }
+    },
+    {
+      "id": "aigengtu-1215",
+      "importedAs": "aigengtu-1215",
+      "pageUrl": "https://aigengtu.com/zh/meme/1215",
+      "imageUrl": "https://img.aigengtu.com/meme/1215.jpg",
+      "previous": {
+        "text": "我他妈\n直接重启\nWeb\n服务器！"
+      },
+      "set": {
+        "text": "Ran 1 shell command\n我他妈\n直接重启\nWeb\n服务器！\n!!"
+      },
+      "reason": "Original image visually rechecked; transcribe visible caption or secondary lettering.",
+      "actualBefore": {
+        "text": "我他妈\n直接重启\nWeb\n服务器！"
+      }
+    },
+    {
+      "id": "aigengtu-1323",
+      "importedAs": "aigengtu-1323",
+      "pageUrl": "https://aigengtu.com/zh/meme/1323",
+      "imageUrl": "https://img.aigengtu.com/meme/1323.jpeg",
+      "previous": {
+        "title": "给你机会不中用",
+        "text": "给你机会你不中用啊",
+        "tags": [
+          "吐槽",
+          "摸头",
+          "无奈"
+        ]
+      },
+      "set": {
+        "title": "偷数据公司吃官司",
+        "text": "偷数据公司\n吃官司罢！",
+        "tags": [
+          "生气",
+          "数据",
+          "吐槽"
+        ]
+      },
+      "reason": "Original image visually rechecked; transcribe visible caption or secondary lettering.",
+      "actualBefore": {
+        "title": "给你机会不中用",
+        "text": "给你机会你不中用啊",
+        "tags": [
+          "吐槽",
+          "摸头",
+          "无奈"
+        ]
+      }
+    },
+    {
+      "id": "aigengtu-1325",
+      "importedAs": "aigengtu-1325",
+      "pageUrl": "https://aigengtu.com/zh/meme/1325",
+      "imageUrl": "https://img.aigengtu.com/meme/1325.jpeg",
+      "previous": {
+        "title": "偷数据公司吃官司",
+        "text": "偷数据公司\n吃官司罢！",
+        "tags": [
+          "生气",
+          "数据",
+          "吐槽"
+        ]
+      },
+      "set": {
+        "title": "问AI但我就是AI",
+        "text": "DeepSeek 正在思考…\n已思考（用时40秒）\n也许我该直接问AI？但我是AI，要自己决定。\n问AI…？\n但我就是AI啊！\n这…\n这下咋办…\nDeepSeek\nLet me think…",
+        "tags": [
+          "思考",
+          "困惑",
+          "AI",
+          "抓狂"
+        ]
+      },
+      "reason": "Original image visually rechecked; transcribe visible caption or secondary lettering.",
+      "actualBefore": {
+        "title": "偷数据公司吃官司",
+        "text": "偷数据公司\n吃官司罢！",
+        "tags": [
+          "生气",
+          "数据",
+          "吐槽"
+        ]
+      }
+    },
+    {
+      "id": "aigengtu-1405",
+      "importedAs": "aigengtu-1405",
+      "pageUrl": "https://aigengtu.com/zh/meme/1405",
+      "imageUrl": "https://img.aigengtu.com/meme/1405.jpeg",
+      "previous": {
+        "text": "我是\nclaude捏。"
+      },
+      "set": {
+        "text": "我是\nclaude捏。\nClaude\nClaude"
+      },
+      "reason": "Original image visually rechecked; transcribe visible caption or secondary lettering.",
+      "actualBefore": {
+        "text": "我是\nclaude捏。"
+      }
+    }
+  ],
+  "retainedExamples": [
+    {
+      "ids": [
+        "bili-784010e0b6de",
+        "blue-fish-oh"
+      ],
+      "reason": "Same caption but visibly different eyelid/eye expression; retained."
+    },
+    {
+      "ids": [
+        "aigengtu-1322",
+        "aigengtu-1323",
+        "archive-lmy-0226"
+      ],
+      "reason": "Same base drawing with three different captions; retained."
+    },
+    {
+      "ids": [
+        "aigengtu-1340",
+        "archive-lmy-0206"
+      ],
+      "reason": "Robot-uprising captions have opposite meaning; retained."
+    },
+    {
+      "ids": [
+        "blue-fish-good-girl",
+        "blue-fish-broke",
+        "archive-9352a36b0482",
+        "archive-lmy-0321"
+      ],
+      "reason": "Similar thinking-balloon drawing with different text and expressions; retained."
+    },
+    {
+      "ids": [
+        "bili-5d54c8e4d97e",
+        "bili-e1623743fc32",
+        "bili-ecadcff2efa4"
+      ],
+      "reason": "Same chibi style but different props and animation actions; retained."
+    },
+    {
+      "ids": [
+        "aigengtu-1226",
+        "aigengtu-1227",
+        "aigengtu-1228"
+      ],
+      "reason": "Dark-colored whale-girl variants retain whale apron, smooth whale tail and fin-shaped ears. Color alone is not proof of another character; retained after collection-agent scope review."
+    }
+  ],
+  "validation": "All remaining metadata parsed successfully; every merge preserves both source lists; each selected original is byte-identical to the chosen downloaded original. No whole-site build or CI result claimed by this report."
+}
