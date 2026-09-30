@@ -4,12 +4,14 @@ from __future__ import annotations
 import argparse
 import base64
 from collections.abc import Mapping
+from concurrent.futures import ThreadPoolExecutor
 from copy import deepcopy
 from dataclasses import dataclass
 import hashlib
 from html import escape
 from io import BytesIO
 import json
+import os
 from pathlib import Path
 import re
 import shutil
@@ -446,7 +448,7 @@ class CatalogSnapshot:
     entries: MappingProxyType
     redirects: MappingProxyType
     MAX_ITEMS = 2500
-    MAX_TOTAL_BYTES = 256 * 1024 * 1024
+    MAX_TOTAL_BYTES = 1024 * 1024 * 1024
 
     def __init__(self, entries=None, redirects=None):
         if entries is not None and not isinstance(entries, Mapping):
@@ -565,21 +567,30 @@ class DuplicateReview:
 
 
 class OcrAdvisor:
+    """Two independent CPU workers; deterministic suggestions never modify captions."""
+    MAX_WORKERS = 2
+    TIMEOUT_SECONDS = 30
+
     def suggest(self, snapshot, changes):
         if not shutil.which('tesseract'):
             return {'status': 'unavailable', 'reason': 'Tesseract is not installed'}
-        suggestions = {}
-        for ident in sorted(changes.changed_images):
-            with tempfile.TemporaryDirectory() as tmp:
-                path = Path(tmp) / 'frame.png'
-                with Image.open(BytesIO(snapshot.entries[ident].image.processed.raw)) as im:
-                    ImageOps.exif_transpose(im).convert('RGB').save(path)
-                try:
-                    proc = subprocess.run(['tesseract', str(path), 'stdout', '-l', 'chi_sim+chi_tra+eng', '--psm', '11'], capture_output=True, timeout=30)
-                    suggestions[ident] = {'text': proc.stdout.decode('utf-8', errors='replace').strip(), 'ok': proc.returncode == 0}
-                except subprocess.TimeoutExpired:
-                    suggestions[ident] = {'text': '', 'ok': False}
-        return suggestions
+        identities = sorted(changes.changed_images)
+        with ThreadPoolExecutor(max_workers=self.MAX_WORKERS) as workers:
+            results = workers.map(self._suggest_for, (snapshot.entries[ident] for ident in identities))
+            return dict(zip(identities, results))
+
+    def _suggest_for(self, sticker):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / 'frame.png'
+            with Image.open(BytesIO(sticker.image.processed.raw)) as im:
+                ImageOps.exif_transpose(im).convert('RGB').save(path)
+            environment = dict(os.environ, OMP_THREAD_LIMIT='1')
+            try:
+                proc = subprocess.run(['tesseract', str(path), 'stdout', '-l', 'chi_sim+chi_tra+eng', '--psm', '11'],
+                                      capture_output=True, timeout=self.TIMEOUT_SECONDS, env=environment)
+                return {'text': proc.stdout.decode('utf-8', errors='replace').strip(), 'ok': proc.returncode == 0}
+            except subprocess.TimeoutExpired:
+                return {'text': '', 'ok': False}
 
 
 class ReviewReport:
