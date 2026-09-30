@@ -610,3 +610,88 @@ def test_all_supported_original_formats_remain_byte_identical(tmp_path, extensio
     item, _, output = published(tmp_path, source)
     assert (output / item['original'].lstrip('/')).read_bytes() == original
     assert path.read_bytes() == original
+
+
+def test_ocr_uses_two_isolated_workers_and_stable_output(tmp_path, monkeypatch):
+    import threading
+    from types import SimpleNamespace
+
+    source = root(tmp_path)
+    for ident in ('delta', 'alpha', 'charlie', 'bravo'):
+        add(source, ident)
+    snapshot = catalog.CatalogSnapshot.read(source)
+    changes = catalog.ChangeSet(catalog.CatalogSnapshot(), snapshot)
+    monkeypatch.setattr(catalog.shutil, 'which', lambda name: '/usr/bin/tesseract')
+    monkeypatch.setenv('OMP_THREAD_LIMIT', '8')
+    barrier = threading.Barrier(2)
+    lock = threading.Lock()
+    active = peak = 0
+    paths = []
+
+    def run(args, *, capture_output, timeout, env):
+        nonlocal active, peak
+        assert capture_output and timeout == 30
+        assert env['OMP_THREAD_LIMIT'] == '1'
+        assert args[0] == 'tesseract' and args[3:] == ['-l', 'chi_sim+chi_tra+eng', '--psm', '11']
+        assert Path(args[1]).is_file()
+        with lock:
+            active += 1
+            peak = max(peak, active)
+            paths.append(args[1])
+        try:
+            barrier.wait(timeout=5)
+            return SimpleNamespace(stdout=' 干饭！\n'.encode(), returncode=0)
+        finally:
+            with lock:
+                active -= 1
+
+    monkeypatch.setattr(catalog.subprocess, 'run', run)
+    suggestions = catalog.OcrAdvisor().suggest(snapshot, changes)
+    assert list(suggestions) == ['alpha', 'bravo', 'charlie', 'delta']
+    assert all(value == {'text': '干饭！', 'ok': True} for value in suggestions.values())
+    assert peak == 2 and len(set(paths)) == 4
+    assert all(not Path(path).exists() for path in paths)
+    assert catalog.os.environ['OMP_THREAD_LIMIT'] == '8'
+
+
+def test_ocr_timeout_and_process_failure_remain_per_image_results(tmp_path, monkeypatch):
+    source = root(tmp_path)
+    add(source, 'timeout', color='red')
+    add(source, 'failure', color='blue')
+    snapshot = catalog.CatalogSnapshot.read(source)
+    changes = catalog.ChangeSet(catalog.CatalogSnapshot(), snapshot)
+    monkeypatch.setattr(catalog.shutil, 'which', lambda name: '/usr/bin/tesseract')
+
+    def run(args, *, capture_output, timeout, env):
+        from types import SimpleNamespace
+        with Image.open(args[1]) as im:
+            red, _, blue = im.getpixel((0, 0))
+        if red > blue:
+            raise catalog.subprocess.TimeoutExpired(args, timeout)
+        return SimpleNamespace(stdout=b'partial', returncode=1)
+
+    monkeypatch.setattr(catalog.subprocess, 'run', run)
+    assert catalog.OcrAdvisor().suggest(snapshot, changes) == {
+        'failure': {'text': 'partial', 'ok': False}, 'timeout': {'text': '', 'ok': False}}
+
+
+def test_ocr_only_processes_changed_images_and_handles_missing_tool(tmp_path, monkeypatch):
+    source = root(tmp_path)
+    add(source, 'unchanged')
+    before = catalog.CatalogSnapshot.read(source)
+    add(source, 'added')
+    after = catalog.CatalogSnapshot.read(source)
+    changes = catalog.ChangeSet(before, after)
+    monkeypatch.setattr(catalog.shutil, 'which', lambda name: None)
+    assert catalog.OcrAdvisor().suggest(after, changes) == {
+        'status': 'unavailable', 'reason': 'Tesseract is not installed'}
+    monkeypatch.setattr(catalog.shutil, 'which', lambda name: '/usr/bin/tesseract')
+    observed = []
+
+    def suggest_for(self, sticker):
+        observed.append(sticker.ident)
+        return {'text': 'suggested', 'ok': True}
+
+    monkeypatch.setattr(catalog.OcrAdvisor, '_suggest_for', suggest_for)
+    assert catalog.OcrAdvisor().suggest(after, changes) == {'added': {'text': 'suggested', 'ok': True}}
+    assert observed == ['added']

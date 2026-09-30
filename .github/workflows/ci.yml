@@ -18,7 +18,7 @@ jobs:
   catalog:
     name: Catalog validation
     runs-on: ubuntu-24.04
-    timeout-minutes: 20
+    timeout-minutes: 40
     steps:
       - name: Checkout proposed final state
         uses: actions/checkout@v7.0.1

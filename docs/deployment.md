@@ -2,6 +2,8 @@
 
 网站是纯静态产物。CPU 图片预处理和去重在 GitHub Actions 完成，Cloudflare 仅托管构建后的文件。使用 [Pages Direct Upload CI](https://developers.cloudflare.com/pages/how-to/use-direct-upload-with-continuous-integration/) 流程，不启用第二套 Git 自动构建。
 
+图库原图合计上限为 1 GiB，单图大小、像素和动画帧限制独立保留。OCR 使用最多两个并行进程，每个进程限定一个 OpenMP 线程、每张超时 30 秒；超时只标记该图的 OCR 建议失败，不覆盖人工文字。目录检查 job 的硬上限为 40 分钟，用于正常的批量投稿；超时会使整批检查失败并阻止发布，不保证数百张图片在最坏情况下均能完成。1 GiB 是原文件总量上限，不是进程内存上限；具体批次的耗时与资源占用需要由实际 CI 验证。
+
 ## 首次配置
 
 1. 在 Cloudflare 中准备名为 `deepseek-chan` 的 Pages 项目，生产分支为 `main`。
