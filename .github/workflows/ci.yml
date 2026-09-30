@@ -1,0 +1,130 @@
+name: Catalog CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  merge_group:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: catalog-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  catalog:
+    name: Catalog validation
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout proposed final state
+        uses: actions/checkout@v4
+        with:
+          path: candidate
+          persist-credentials: false
+      - name: Checkout trusted processing code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.sha || github.event.merge_group.base_sha || github.sha }}
+          path: pipeline
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: pipeline/requirements.txt
+      - name: Install processing tools
+        run: python -m pip install -r pipeline/requirements.txt
+      - name: Install optional OCR tools
+        run: sudo apt-get update -qq && sudo apt-get install -y tesseract-ocr tesseract-ocr-chi-sim tesseract-ocr-chi-tra
+      - name: Test trusted pipeline
+        working-directory: pipeline
+        run: python -m pytest -q
+      - name: Validate all mutations and build preview
+        env:
+          HAS_BASE: ${{ github.event_name == 'pull_request' || github.event_name == 'merge_group' }}
+        shell: bash
+        run: |
+          args=()
+          if [[ "$HAS_BASE" == "true" ]]; then args+=(--base pipeline); fi
+          python pipeline/scripts/build.py --root candidate --output site --report-dir reports --ocr "${args[@]}"
+      - name: Write review summary
+        if: always()
+        shell: bash
+        run: |
+          if [[ -f reports/summary.md ]]; then cat reports/summary.md >> "$GITHUB_STEP_SUMMARY"; fi
+          if [[ -f reports/error.txt ]]; then
+            echo 'Catalog validation failed. See error.txt in the catalog-review artifact.' >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Upload review report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: catalog-review
+          path: reports/
+          if-no-files-found: ignore
+      - name: Upload processed static preview
+        uses: actions/upload-artifact@v4
+        with:
+          name: static-site
+          path: site/
+          include-hidden-files: false
+
+  code:
+    name: Code tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: python -m pip install -r requirements.txt
+      - run: python -m pytest -q
+      - run: node --check web/app.js
+      - run: node --test tests/frontend.test.mjs
+
+  deploy:
+    name: Publish to Cloudflare Pages
+    needs: [catalog, code]
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request' && vars.CLOUDFLARE_ACCOUNT_ID != ''
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: production
+      url: https://deepseek-chan.ry.rs
+    steps:
+      - name: Verify deployment credentials
+        env:
+          HAS_CLOUDFLARE_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}
+        run: |
+          if [[ "$HAS_CLOUDFLARE_TOKEN" != "true" ]]; then
+            echo '::error::Configure CLOUDFLARE_API_TOKEN in repository Actions secrets before publishing. See docs/deployment.md.'
+            exit 1
+          fi
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - uses: actions/download-artifact@v4
+        with:
+          name: static-site
+          path: dist
+      - name: Publish validated artifact
+        run: npx wrangler pages deploy dist --project-name deepseek-chan --branch main
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}

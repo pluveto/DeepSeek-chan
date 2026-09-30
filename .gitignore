@@ -1,0 +1,10 @@
+node_modules/
+dist/
+dist-preview/
+reports/
+.venv/
+__pycache__/
+.pytest_cache/
+.wrangler/
+.env*
+.dev.vars*

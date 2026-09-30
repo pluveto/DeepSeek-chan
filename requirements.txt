@@ -1,0 +1,6 @@
+Pillow==11.3.0
+ImageHash==4.3.2
+xxhash==3.6.0
+RapidFuzz==3.14.1
+PyYAML==6.0.2
+pytest==8.4.2

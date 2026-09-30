@@ -1,0 +1,59 @@
+# 三巨头审核记录
+
+## 首轮：2026-10-01
+
+范围：静态表情墙、声明式多 mutation 入库、出处保留、去重、OOP 模型和 GitHub Actions 发布边界。审核角色分别独立读取实现，并至少一轮交叉讨论。截图预处理是本轮之后追加的需求，需要另外验收。
+
+**分判：Evans、Ousterhout、Kay 均为有条件通过；不能据此宣称最终审核通过或部署完成。**
+
+| 条件 | 证据与必须修复的行为 |
+| --- | --- |
+| 合并保留所有参与条目的出处 | `ChangeSet` 当时只校验 donor 来源，survivor 原出处可被删除；已用实际条目复现。需要强制保留合并参与者的来源并集。 |
+| 快照的公开构造入口保证有效性 | `CatalogSnapshot` 当时可接受无效 ID 与任意对象，与完整有效快照的接口约定矛盾。需要集中维护类型、身份、条目数量和总大小约束。 |
+| 报告封装自身状态 | `CatalogBuilder` 当时直接修改 `ReviewReport.data` 并返回共享字典。需要消息接口和独立导出，避免调用方依赖内部表示。 |
+
+交锋达成的共识：来源丢失是必须优先修复的实际领域缺陷；构造校验应集中，但无需重复解码图片或引入多层仓储框架；静态纯工具方法不导致整个 OOP 设计失败，但主要对象必须拥有真实行为；报告状态直写属于可直接消除的抽象泄漏。
+
+首轮已有 Python 和前端模型测试通过的本地证据，但这不覆盖后续变更，也不代替 CI、部署和浏览器验收。
+
+## 最终复审：2026-10-01
+
+范围扩展为首轮整改和截图预处理。以下通过结论针对当前代码与贡献协议，不包含尚未执行的线上部署验收。
+
+### Eric Evans
+
+**分判：通过。** `ChangeSet` 独立累计同条目的 `UPDATE`、`REPLACE`、`SOURCES` 和 `REPROCESS`，没有退化为一个 PR 一种操作。MERGE 检查 donor 和 survivor 的完整来源并集；`CatalogSnapshot` 的构造入口检查身份、类型、数量和总大小。处理意图由不可变 `ProcessingPolicy` 表达，原始投稿与派生资源身份分离。独立重跑 60 项 Python 测试通过。
+
+### John Ousterhout
+
+**分判：通过。** 原始字节读取与发布、截图处理流程、报告输出和构建目录替换分别封装在有实际行为的对象中。`ImageProcessor` 隐藏裁剪与缩小的执行顺序，`ProcessedImage` 保存处理结果及报告，调用方无需重复组织步骤。首轮三项条件已实质修复；页面两处扩大功能范围的文案已纠正。独立运行 60 项 Python 和 7 项前端测试通过。
+
+### Alan Kay
+
+**分判：通过。** OOP 的依据是状态归属与公开消息，而不是类数量：`ProcessingPolicy` 校验输入，`ImageProcessor` 生成不可变结果，`ImageAsset` 保留原始与处理资源，`ReviewReport` 对输入和导出双向复制。测试验证外部修改不会改变报告内部状态；前端同样保护嵌套处理报告。独立运行 60 项 Python 和 7 项前端测试通过。
+
+## 三个人的讨论
+
+- Evans 要求保留来源并集，Ousterhout 用真实条目复现旧代码的 survivor 来源丢失，认为其优先级高于形式上的类组织问题；修复后双方确认多 donor 与重定向链都应检查最终保留条目。
+- Kay 反对用私有字段命名或类数量作为 OOP 证据；Ousterhout 同意，并以报告输入与输出的复制测试确认状态隔离真实成立。两人都不要求为无状态辅助算法增加接口工厂。
+- Ousterhout 与 Evans 同意原图身份必须稳定，派生地址应随处理策略和配方改变；不为静态 CPU 流程新增实体数据库或持久化框架。
+- 三人一致认为自动裁边只提供保守处理和复核证据，不能自动判断收纳适宜性或保证所有艺术构图正确。人工对照、水印检查与 `trim: false` 保留，文案明确白色和透明边不自动裁剪。
+
+## 最终意见
+
+**总判：通过代码与协议审核。** 首轮条件全部关闭，复审没有未解决的阻断问题。该结论不表示 GitHub Actions 已成功部署，也不表示自定义域名已经完成浏览器验收；上线结果必须由实际执行另行确认。
+
+## 整改结果与验证证据
+
+| 问题或新增行为 | 实现与验收证据 |
+| --- | --- |
+| 合并不能丢失保留条目出处 | `ChangeSet` 校验完整来源并集；`test_merge_cannot_discard_survivor_sources` 证明丢失 survivor 原来源会失败；作者与许可保留另有回归测试。 |
+| 快照入口必须有效 | `CatalogSnapshot` 校验映射、键、条目身份和限额；`test_snapshot_constructor_enforces_identity_and_total_limits` 覆盖无效 ID、类型、不一致身份及资源上限。 |
+| 报告不能共享可变表示 | `ReviewReport` 构造与 `snapshot()` 深复制；`test_review_report_owns_input_and_returns_detached_snapshot` 同时改变输入和返回值，证明内部内容不变，并检查 HTML 转义。 |
+| 预处理保留来源和原图身份 | `test_phone_screenshot_processing_publishes_crop_and_keeps_submission` 检查处理结果及原图字节；`test_all_supported_original_formats_remain_byte_identical` 覆盖支持格式；离线 `review.html` 带前后图、文字和出处。 |
+| 裁剪边界及不放大 | 测试覆盖白色、透明边、带图标状态栏、全色图片、过度裁剪保留、显式裁剪、EXIF 坐标、默认缩小及小图不放大。 |
+| 动画与缓存策略 | 动画保留原文件，显式 `crop` / `max_edge` 拒绝；配方或策略变化改变 display / preview 地址，但 original 地址不变。 |
+| 多 mutation 与处理后去重证据 | `test_reprocess_combines_with_other_mutations_on_same_entry` 验证同条目四种操作并存；相似度比较处理结果，精确重复仍基于原始字节。 |
+| 发布边界 | PR 无部署凭据；生产发布依赖检查成功；静态 artifact 排除 `.catalog-build.json` 等隐藏构建文件，避免发布内部目录所有权信息。 |
+
+最终本地测试结果为 60 项 Python、7 项前端测试通过。上线证据不计入以上本地测试结果。

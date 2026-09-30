@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f7fc">
+  <meta name="description" content="通过 GitHub PR 为 DeepSeek-chan 贡献聊天表情、修正文字与来源。一份 PR 可以包含多项变更，CI 自动处理图片。">
+  <title>贡献表情 · DeepSeek-chan</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="DeepSeek-chan 首页"><img src="/favicon.svg" width="35" height="35" alt=""><span>DeepSeek<span class="brand-tail">-chan</span></span><span class="beta">表情收集站</span></a>
+    <nav aria-label="主导航"><a href="https://github.com/pluveto/DeepSeek-chan" target="_blank" rel="noopener">GitHub ↗</a><a class="nav-cta" href="/">回表情墙</a></nav>
+  </header>
+  <main class="document">
+    <div class="eyebrow">A COLLECTION BY EVERYONE</div>
+    <h1>一起，让这面墙更有鱼乐。</h1>
+    <p>带来一张表情、补上一行文字，或者帮忙修正来源。所有变更都通过 GitHub Pull Request（PR）协作，不需要在电脑上安装工具或运行脚本。</p>
+    <p class="callout"><strong>一份 PR 可以包含多项变更。</strong>新增几张图、修正已有文字、删除一张不合适的图，都可以放在同一份 PR 中一起审核。</p>
+
+    <h2>我们收录什么</h2>
+    <p>这里收集适合日常聊天的蓝色大肥鱼 / DeepSeek 同人表情：有明确反应、动作、情绪或聊天用途的图片与动图。</p>
+    <p>暂不收录涩图、裸露或性暗示内容，以及以身体展示为主的泳装、内衣等插画。普通角色立绘、壁纸与其他没有表情用途的图片，也不在本项目范围内。所有投稿由维护者人工审核，自动检查通过不代表一定收录。</p>
+
+    <h2>直接在 GitHub 网页投稿</h2>
+    <ol>
+      <li>打开 <a href="https://github.com/pluveto/DeepSeek-chan" target="_blank" rel="noopener">项目仓库</a>，点击 Fork，在自己的副本中进行修改。</li>
+      <li>在 <code>stickers/</code> 下建立一个独立目录，例如 <code>fish-eating-01</code>。目录名就是稳定 ID，建议使用小写英文字母、数字和短横线。</li>
+      <li>使用 GitHub 的 Add file → Upload files 上传原图，命名为 <code>original.png</code>、<code>original.jpg</code>、<code>original.webp</code> 或 <code>original.gif</code>；每个条目只保留一份原图。</li>
+      <li>在同一目录使用 Add file → Create new file 创建 <code>metadata.yaml</code>，照下面的示例填写。继续添加其他条目或修改文件，提交到同一分支。</li>
+      <li>点击 Contribute → Open pull request，说明本次变更。CI 自动校验文件、检查重复、生成缩略图和索引，并提供检查报告；按报告调整这份 PR 即可。</li>
+    </ol>
+    <p>维护者审核并合并后，网站自动更新。缩略图、哈希和搜索索引都由 CI 生成，不需要手动提交。</p>
+
+    <h2>每张图，两份文件</h2>
+    <pre><code>stickers/
+  fish-eating-01/
+    original.png
+    metadata.yaml</code></pre>
+    <pre><code>title: 开饭了
+text: |
+  干饭！
+tags:
+  - 干饭
+  - 吃饭
+sources:
+  - url: https://example.com/original-post
+    author: 作者名</code></pre>
+    <p><code>text</code> 必须逐字记录图中文字，保留有意义的换行；没有文字时填写 <code>text: ""</code>。OCR 只能辅助提供建议，最终以人工核对的文字为准。表情墙按文字、标题和标签匹配关键词，不会自动理解图片内容。</p>
+    <p><code>sources</code> 可填写多个来源，尽量链接到作者原始发布页面。未知作者可以省略 <code>author</code>。只有明确查证授权时才填写可选的 <code>license</code>，不要把公开可见当作可自由转载，也不要虚构来源或署名。示例中的网址请替换成真实来源。</p>
+
+    <h2>截图也能投稿，原始文件始终保留</h2>
+    <p>CI 默认仅裁静态图片外侧连续的非白色不透明纯色边，白色和透明边会保留；不识别或重画内容。图片最长边超过 960 像素时会缩小，较小的图片不会放大，也不做 AI 超分。展示、复制和「下载表情」使用整理后的图片，详情页另有「下载原始投稿」。</p>
+    <p>状态栏、按钮和文字不会被当成纯色空边自动移除。截图含有这些内容时，可以在 <code>metadata.yaml</code> 中添加可选的 <code>processing</code>，明确指定保留区域；不要裁掉表情文字、作者署名或水印。</p>
+    <pre><code>processing:
+  trim: true
+  crop: [0, 80, 1080, 1160]
+  max_edge: 960</code></pre>
+    <p><code>crop</code> 是按照片方向校正后的像素坐标 <code>[左, 上, 右, 下]</code>，右、下边界不包含在保留区域内；示例只适用于对应尺寸，请按实际图片填写。先按指定区域裁剪，再整理纯色空边；<code>trim: false</code> 可关闭自动裁边，<code>max_edge</code> 可以指定更小的最长边，始终不会放大。使用默认处理时可省略整个 <code>processing</code>；要保留边缘可设 <code>trim: false</code>，投稿原文件始终不变。</p>
+    <p>动图保持原文件，不进行裁剪或缩放；请不要为动图填写 <code>crop</code> 或 <code>max_edge</code>。维护者会结合预处理结果人工检查，自动裁边不适合时可以在同一 PR 中调整。</p>
+
+    <h2>不止新增，也可以修修补补</h2>
+    <ul>
+      <li><strong>修改信息：</strong>编辑现有条目的 <code>metadata.yaml</code>，修正标题、文字、标签或来源。</li>
+      <li><strong>替换图片：</strong>用更清晰或修复后的同一表情替换原图，保留目录 ID。配字、含义或动画内容发生变化时，请新增条目。</li>
+      <li><strong>删除表情：</strong>删除整个条目目录。合并后会从当前网站和搜索索引移除；Git 历史中仍可能保留原文件。</li>
+      <li><strong>合并重复：</strong>把有效来源补到保留条目，删除重复条目，并在根目录 <code>redirects.yaml</code> 中加入旧 ID 到保留 ID 的映射。</li>
+    </ul>
+    <pre><code># redirects.yaml
+fish-eating-copy: fish-eating-01</code></pre>
+    <p>完全相同的文件会被自动拦截。画面相似的图片结合文字比较，只作为重复候选交给维护者审核；相同底图、不同配字可以分别收录。删除或合并时，也请一起修正指向被删除条目的旧映射。</p>
+
+    <h2>有问题，先留个线索</h2>
+    <p>不确定如何修改文件，或者发现不适合收录、来源错误、权利问题的内容，可以直接 <a href="https://github.com/pluveto/DeepSeek-chan/issues/new" target="_blank" rel="noopener">提交 Issue</a>。请附上表情链接、问题说明和可核实的来源。</p>
+    <p><a href="/">← 回到表情墙</a> · <a href="/about.html">版权与来源</a></p>
+  </main>
+  <footer><span>DeepSeek-chan <span class="footer-dot">·</span> 一点一滴，由大家共建。</span><span>非 DeepSeek 官方网站 <a href="/about.html">版权与来源</a></span></footer>
+</body>
+</html>

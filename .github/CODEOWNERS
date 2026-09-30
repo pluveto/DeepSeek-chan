@@ -1,0 +1,9 @@
+/scripts/ @pluveto
+/tests/ @pluveto
+/.github/ @pluveto
+/requirements.txt @pluveto
+/package*.json @pluveto
+/web/ @pluveto
+/stickers/ @pluveto
+/redirects.yaml @pluveto
+/docs/ @pluveto

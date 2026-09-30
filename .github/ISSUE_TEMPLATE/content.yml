@@ -1,0 +1,28 @@
+name: 表情内容或来源问题
+description: 反馈不适合收录的内容、错误署名、版权或重复问题
+title: '[内容反馈] '
+body:
+  - type: input
+    id: sticker
+    attributes:
+      label: 表情链接或 ID
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: 问题类型
+      options:
+        - 内容不适合收录
+        - 来源或署名错误
+        - 版权 / 下架请求
+        - 重复或其他
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: 具体说明
+      description: 请附原始来源或其他有助于核实的信息，不要填写私人联系方式。
+    validations:
+      required: true

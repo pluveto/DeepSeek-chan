@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f7fc">
+  <meta name="description" content="蓝色大肥鱼出没！一个由大家共同收藏的 DeepSeek 同人表情墙。找表情、存原图，也欢迎带着你的收藏来投稿。">
+  <title>DeepSeek-chan · 蓝色大肥鱼表情墙</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" type="module"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="DeepSeek-chan 首页"><img src="/favicon.svg" width="35" height="35" alt=""><span>DeepSeek<span class="brand-tail">-chan</span></span><span class="beta">表情收集站</span></a>
+    <nav aria-label="主导航"><a href="https://github.com/pluveto/DeepSeek-chan" target="_blank" rel="noopener">GitHub ↗</a><a class="nav-cta" href="/contribute.html">＋ 贡献表情</a></nav>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="hero-copy"><div class="eyebrow"><span></span> THE LITTLE BLUE COLLECTION</div><h1>今天，也要<span>有点鱼乐。</span></h1><p>把说不出口的话，交给蓝色大肥鱼。<br>一面由大家一起填满的 DeepSeek 同人表情墙。</p><div class="hero-note"><span>✦</span> 非官方 · 社区共建 · 原图收藏</div></div>
+      <div class="hero-art" aria-hidden="true"><div class="orbit"></div><span class="spark spark-one">✧</span><span class="spark spark-two">✦</span><div class="floating-note">今日状态：摸鱼中…</div><div class="hero-sticker"><img id="hero-image" alt="" hidden><span id="hero-placeholder">🐳</span></div><span class="tiny-label">a little blue, a lot of mood.</span></div>
+    </section>
+    <section class="collection" aria-label="表情收藏">
+      <div class="search-wrap"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><label class="sr-only" for="search">搜索文字、标题或标签</label><input id="search" type="search" autocomplete="off" placeholder="搜一搜你的心情，比如：干饭、委屈、摸鱼…"><kbd>/</kbd></div>
+      <div class="filter-row"><div id="tags" class="tags" aria-label="标签筛选"></div><button class="favorites-filter" id="favorites-filter" aria-pressed="false">♡ 我的收藏</button></div>
+      <div class="collection-bar"><h2 id="collection-title">全部表情 <span id="count">…</span></h2><div><label for="sort" class="sr-only">排列方式</label><select id="sort"><option value="default">默认排列</option><option value="title">按名称排列</option></select></div></div>
+      <p id="status" class="status" role="status">正在把大肥鱼捞上来…</p>
+      <div id="grid" class="grid"></div>
+      <button id="more" class="more" hidden>再捞一些 ↓</button>
+      <div id="empty" class="empty" hidden><span>◌</span><h3>这片海域还没有鱼</h3><p>试试其他文字或标签，也可以贡献一张新表情。</p><button id="reset">清除筛选</button></div>
+    </section>
+    <aside class="contribute-banner"><div><span class="eyebrow">A COLLECTION BY EVERYONE</span><h2>你的收藏夹里，还有哪条鱼？</h2><p>分享表情、补充文字、修正来源，让这面墙再丰富一点。</p></div><a href="/contribute.html">一起添块砖 ↗</a></aside>
+  </main>
+  <footer><span>DeepSeek-chan <span class="footer-dot">·</span> 用一点蓝色，装下各种心情。</span><span>非 DeepSeek 官方网站 <a href="/about.html">版权与来源</a></span></footer>
+  <dialog id="detail" aria-labelledby="detail-title"><button id="close-detail" class="close" aria-label="关闭预览">×</button><div class="detail-art"><img id="detail-image" alt=""></div><div class="detail-info"><span class="eyebrow">FROM THE BLUE COLLECTION</span><h2 id="detail-title"></h2><p id="detail-text"></p><div id="detail-tags" class="tags"></div><div class="detail-actions"><a id="download" class="primary" download>↓ 下载表情</a><button id="copy-image">复制图片</button><button id="favorite-detail">♡ 收藏</button></div><p id="processing-summary" class="processing-summary" hidden></p><div class="detail-links"><button id="copy-link" class="text-button">复制表情链接 ↗</button><a id="download-original" class="text-button" download>下载原始投稿</a></div><div class="source-block"><h3>来源与署名</h3><ul id="sources"></ul><a id="edit" target="_blank" rel="noopener">补充信息 / 修正来源 ↗</a></div></div></dialog>
+  <div id="toast" class="toast" role="status" hidden></div>
+  <noscript><p class="status">请启用 JavaScript 来浏览和搜索表情。也可以在 GitHub 仓库中查看原图。</p></noscript>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "name": "deepseek-chan",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "python scripts/build.py",
+    "test": "python -m pytest -q",
+    "dev": "python -m http.server 4173 --directory dist",
+    "deploy": "wrangler pages deploy dist --project-name deepseek-chan --branch main"
+  },
+  "devDependencies": {"wrangler": "4.145.0"}
+}
