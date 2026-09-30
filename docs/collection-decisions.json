@@ -1,6 +1,6 @@
 {
   "initialCount": 607,
-  "finalCount": 582,
+  "finalCount": 581,
   "reviewer": "Codex collection agent",
   "method": "PIL first-frame pHash candidate screening plus Unicode normalization/edit similarity; agent visual pair review. Added white-composite hash pass for transparent input. Similarity never automatically deletes.",
   "reviewScope": {
@@ -8,7 +8,8 @@
     "focusedPairVisualReviews": 79,
     "supplementalWhiteCompositePairsReviewed": 48,
     "sameTemplateImagesIndividuallyReviewed": 105,
-    "animationPair": "33 frames and 2750ms each; frames 0/8/16/24/32 visually compared"
+    "animationPair": "33 frames and 2750ms each; frames 0/8/16/24/32 visually compared",
+    "followUpEyeComparison": "Same-coordinate eye crop enlarged 2×, whole-image RGB difference, dark-region overlap and edge-distance check; corrected compression artifacts mistaken for expression variation."
   },
   "retentionRule": "Different visible caption, facial expression, prop, or motion stays separate. Same-template GIFs with different captions retained. No published ID removed.",
   "decisions": [
@@ -431,7 +432,7 @@
           ]
         }
       ],
-      "reason": "Same eye expression and caption at 1026²; preserve published ID. Other eye-expression variant bili-784010e0b6de remains separate.",
+      "reason": "Same eye expression and caption at 1026²; preserve published ID. A later follow-up also confirmed bili-784010e0b6de is a compressed copy, recorded as its own correction decision.",
       "sourceCountAfter": 3,
       "publishedIdPreserved": true
     },
@@ -1303,6 +1304,73 @@
         }
       ],
       "reason": "Full-body character illustration in a room, primarily pose/character display; excluded after parent and agent review as lacking focused everyday chat reaction."
+    },
+    {
+      "decision": "merge",
+      "pairIndex": 10,
+      "survivor": "blue-fish-oh",
+      "removed": "bili-784010e0b6de",
+      "chosenOriginal": "blue-fish-oh",
+      "before": [
+        {
+          "id": "blue-fish-oh",
+          "dimensions": [
+            1026,
+            1026
+          ],
+          "sha256": "0e6f7d3da4d9149c44c190fbc1402519837ac154207a3cd8fecd2e24eb92e3a2",
+          "watermark": "No clearly legible added watermark observed",
+          "sources": [
+            {
+              "url": "https://github.com/EDMOK/blue-fish-archive/blob/3ccab6c91c0f104e618f42a7d27552345db9c6d1/media/299e99da92313229a42d188bb08dacce7aa33445.jpg",
+              "author": "",
+              "license": ""
+            },
+            {
+              "url": "https://www.bilibili.com/video/BV1m88766EeU/",
+              "author": "",
+              "license": ""
+            },
+            {
+              "url": "https://i0.hdslb.com/bfs/new_dyn/1fb97ce3e69aa8c04dc7cfa5829f10e73707020492408911.jpg",
+              "author": "",
+              "license": ""
+            }
+          ]
+        },
+        {
+          "id": "bili-784010e0b6de",
+          "dimensions": [
+            1026,
+            1026
+          ],
+          "sha256": "784010e0b6de274048ab5ba1b7d3285a8c02e7c04fc10fe40a96949f35d38f76",
+          "watermark": "No clearly legible added watermark observed",
+          "sources": [
+            {
+              "url": "https://www.bilibili.com/video/BV1Q4b16pE3X/",
+              "author": "",
+              "license": ""
+            },
+            {
+              "url": "https://i0.hdslb.com/bfs/new_dyn/2f2f82664ae92ee3294e49dd7eabeacb4358065.png",
+              "author": "",
+              "license": ""
+            }
+          ]
+        }
+      ],
+      "reason": "Follow-up eye-area enlargement and structural comparison corrected the earlier false variant judgment. Same image and caption, only compression/sharpness/color differences. Keep published original and union all sources.",
+      "sourceCountAfter": 5,
+      "publishedIdPreserved": true,
+      "correctionOfPriorFinding": "The earlier claim of different eyelids/eye expression was incorrect.",
+      "evidenceMetrics": {
+        "rgbMAE": 2.241584621795627,
+        "rgbRMSE": 4.342417740747416,
+        "eyeDarkRegionIoUAtThreshold90": 0.9533167738164816,
+        "eyeMeanEdgeDistancePixels": 0.25232106052283154,
+        "eyeEdgesWithin1PixelFraction": 0.9648178867953987
+      }
     }
   ],
   "metadataCorrections": [
@@ -1473,13 +1541,6 @@
     }
   ],
   "retainedExamples": [
-    {
-      "ids": [
-        "bili-784010e0b6de",
-        "blue-fish-oh"
-      ],
-      "reason": "Same caption but visibly different eyelid/eye expression; retained."
-    },
     {
       "ids": [
         "aigengtu-1322",
