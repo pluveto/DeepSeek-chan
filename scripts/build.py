@@ -229,13 +229,13 @@ class ProcessedImage:
             thumb = ImageOps.exif_transpose(im).convert('RGBA')
             thumb.thumbnail((480, 480), Image.Resampling.LANCZOS)
             output = BytesIO()
-            thumb.save(output, 'WEBP', quality=85, method=6)
+            thumb.save(output, 'WEBP', quality=85, method=4)
             return output.getvalue()
 
 
 class ImageProcessor:
     """Conservative edge trimming; explicit crop and bounded downscaling only."""
-    RECIPE = 'display-v1-preview-v1'
+    RECIPE = 'display-v1-preview-v2'
     EDGE_TOLERANCE = 8
     WHITE_THRESHOLD = 245
 
