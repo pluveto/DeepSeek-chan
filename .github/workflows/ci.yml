@@ -17,22 +17,22 @@ concurrency:
 jobs:
   catalog:
     name: Catalog validation
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 20
     steps:
       - name: Checkout proposed final state
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7.0.1
         with:
           path: candidate
           persist-credentials: false
       - name: Checkout trusted processing code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7.0.1
         with:
           ref: ${{ github.event.pull_request.base.sha || github.event.merge_group.base_sha || github.sha }}
           path: pipeline
           persist-credentials: false
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7.0.0
         with:
           python-version: '3.12'
           cache: pip
@@ -62,13 +62,13 @@ jobs:
           fi
       - name: Upload review report
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7.0.1
         with:
           name: catalog-review
           path: reports/
           if-no-files-found: ignore
       - name: Upload processed static preview
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7.0.1
         with:
           name: static-site
           path: site/
@@ -76,16 +76,16 @@ jobs:
 
   code:
     name: Code tests
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7.0.1
         with:
           persist-credentials: false
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7.0.0
         with:
           python-version: '3.12'
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7.0.0
         with:
           node-version: '22'
       - run: python -m pip install -r requirements.txt
@@ -97,7 +97,7 @@ jobs:
     name: Publish to Cloudflare Pages
     needs: [catalog, code]
     if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request' && vars.CLOUDFLARE_ACCOUNT_ID != ''
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 10
     environment:
       name: production
@@ -111,15 +111,15 @@ jobs:
             echo '::error::Configure CLOUDFLARE_API_TOKEN in repository Actions secrets before publishing. See docs/deployment.md.'
             exit 1
           fi
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7.0.1
         with:
           persist-credentials: false
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7.0.0
         with:
           node-version: '22'
           cache: npm
       - run: npm ci --ignore-scripts
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8.0.1
         with:
           name: static-site
           path: dist

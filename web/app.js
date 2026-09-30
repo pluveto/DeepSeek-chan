@@ -425,4 +425,3 @@ class StickerWallApp {
 }
 
 if (typeof document !== 'undefined') new StickerWallApp().start();
-
